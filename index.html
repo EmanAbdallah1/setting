@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>company</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
+    <!-- include libraries(jQuery, bootstrap) -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- include summernote css/js -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+</head>
+
+<body>
+
+    <div class="company">
+        <div class="container">
+            <form class="form">
+                <div class="company_form">
+                    <div class="row">
+
+                        <div class="col-lg-2">
+                            <p>Name</p>
+                        </div>
+                        <div class="col-lg-10"> <input value="Pet Clinic" /></div>
+                    </div>
+                </div>
+                <div class="company_form">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <p>Vat Number</p>
+                        </div>
+                        <div class="col-lg-10"> <input value="301372281700003" /></div>
+                    </div>
+                </div>
+                <div class="company_form">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <p>License Number</p>
+                        </div>
+                        <div class="col-lg-10"> <input placeholder="licence number" /></div>
+                    </div>
+                </div>
+                <div class="company_form">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <p>About Us</p>
+                        </div>
+                        <div class="col-lg-10">
+                            <div class="click2edit">Petcare
+
+                                We design Petcare as a veterinary practice management software to all Veterinary
+                                Facilities
+                                (Hospitals, Clinics, The Kennel Club, Grooming and P
+
+                                et Shops) to ease their work, streamline operations, increase productivity and to grow
+                                practice
+                                revenue.
+
+                                It’s built from scratch to meet the needs of practitioners to focus on their work and
+                                leave
+                                the
+                                management of your facility to Petcare This web-based software can be reachable
+                                anywhere,
+                                anytime if you have an internet connection so you can manage your patients or client’s
+                                files,
+                                follow-up treatment, check your inventory, etc.
+
+                                Future and joy of technology is between your hands enjoy it.</div>
+                            <button id="edit" class="btn " onclick="edit()" type="button">Edit</button>
+                            <button id="save" class="btn " onclick="save()" type="button">Save</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="company_form">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <p>Logo</p>
+                        </div>
+                        <div class="col-lg-10">
+                            <div class="fileUpload blue-btn btn">
+                                <span>Upload your Organizations logo</span>
+                                <input type="file" class="uploadlogo" />
+                              </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="company_form">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            
+                        </div>
+                        <div class="col-lg-10">
+                            <button class="editbutton">edit</button>
+                        </div>
+
+
+                    </div>
+                </div>
+                
+        </div>
+    </div>
+   
+    </form>
+
+    <script>
+        var edit = function () {
+            $('.click2edit').summernote({ focus: true });
+        };
+
+        var save = function () {
+            var markup = $('.click2edit').summernote('code');
+            $('.click2edit').summernote('destroy');
+        };
+    </script>
+    <script>
+        $('input').attr('disabled', true);
+        $('.editbutton').on('click', function (e) {
+            e.preventDefault();
+            $('input').attr('disabled', false);
+        })
+    </script>
+    <script>
+        $('#filecount').filestyle({
+ input : false,
+ buttonName : 'btn-danger',
+ iconName : 'glyphicon glyphicon-folder-close'
+});                 
+        
+    </script>
+    <script>
+
+
+$(document).ready(function($) {
+
+$(".uploadlogo").change(function() {
+  var filename = readURL(this);
+  $(this).parent().children('span').html(filename);
+});
+
+function readURL(input) {
+  var url = input.value;
+  var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+  if (input.files && input.files[0] && (
+    ext == "png" || ext == "jpeg" || ext == "jpg" || ext == "gif" || ext == "pdf"
+    )) {
+    var path = $(input).val();
+    var filename = path.replace(/^.*\\/, "");
+
+    return "Uploaded file : "+filename;
+  } else {
+    $(input).val("");
+    return "Only image/pdf formats are allowed!";
+  }
+}
+
+});
+    </script>
+ <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+</body>
+
+</html>
